@@ -1,0 +1,25 @@
+{
+
+    "isDev": true,
+    "_comment": "containerType => lxc, lxd, docker",
+    "containerType": "lxd",
+    "server": {
+        "ip": "10.221.40.228",
+        "port": 8888,
+        "/* secure */": "/* whether this connects via https */",
+        "secure": true,
+        "key": null,
+        "cert": null,
+        "password": null
+    },
+    "rooms": {
+        "/* maxClients */": "/* maximum number of clients per room. 0 = no limit */",
+        "maxClients": 0
+    },    
+    "lxdImageServer": {
+        "name": "swarm",
+        "ip": "10.221.40.228",
+        "port": "8443",
+		"lxdTrustPassword": "lge123"
+    }
+}

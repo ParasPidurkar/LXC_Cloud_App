@@ -1,0 +1,38 @@
+# Template used to create this container: /usr/share/lxc/templates/lxc-download
+# Parameters passed to the template: --no-validate
+# For additional config options, please look at lxc.container.conf(5)
+
+# Uncomment the following line to support nesting containers:
+#lxc.include = /usr/share/lxc/config/nesting.conf
+# (Be aware this has security implications)
+
+
+# Distribution configuration
+lxc.include = /usr/share/lxc/config/common.conf
+lxc.arch = linux32
+
+# Container specific configuration
+lxc.rootfs.path = dir:/var/lib/lxc/google/rootfs
+lxc.uts.name = google
+
+# Network configuration
+#lxc.net.0.type = empty
+lxc.net.0.type = veth
+lxc.net.0.flags = up
+lxc.net.0.link = lxcbr0
+lxc.net.0.ipv4.address = 10.0.3.2/24 10.0.3.254
+lxc.net.0.ipv4.gateway = 10.0.3.1
+lxc.net.0.hwaddr = 00:16:3e:a2:7d:54
+lxc.net.0.name = eth0
+
+lxc.mount.entry = /tmp tmp none rw,bind,create=dir 0 0
+lxc.mount.entry = /dev/dri dev/dri none rw,bind,create=dir 0 0
+lxc.mount.entry = /dev/mem dev/mem none rw,bind,create=file 0 0
+lxc.mount.entry = /tmp/wayland-0 tmp/wayland-0 none rw,bind,create=file 0 0
+
+#Sound device nodes
+lxc.cgroup.devices.allow = c 116:* rwm
+lxc.mount.entry = /dev/snd dev/snd none bind,optional,create=dir
+
+# For Allowing Pulse Client to Access pulseserver in host
+lxc.mount.entry = /var/run/pulse/native home/root/.pulse_sock none bind,optional,create=file

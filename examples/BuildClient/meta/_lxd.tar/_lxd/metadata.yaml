@@ -1,0 +1,33 @@
+architecture: armhf
+creation_date: 1629897017
+expiry_date: 1632489017
+properties:
+ architecture: armhf
+ description: Webos 2.0 armhf (20210825_13:09)
+ name: Webos-2,0-armhf-20210825_13:09
+ os: webos
+ release: "2.0"
+ serial: "20210825_13:09"
+ variant: default
+templates:
+  /etc/hostname:
+    when:
+    - create
+    - copy
+    create_only: false
+    template: hostname.tpl
+    properties: {}
+  /etc/hosts:
+    when:
+    - create
+    - copy
+    create_only: false
+    template: hosts.tpl
+    properties: {}
+  /etc/inittab:
+    when:
+    - create
+    - copy
+    create_only: false
+    template: inittab.tpl
+    properties: {}

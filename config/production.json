@@ -1,0 +1,16 @@
+{
+  "isDev": true,
+  "server": {
+    "port": 8888,
+    "/* secure */": "/* whether this connects via https */",
+    "secure": false,
+    "key": null,
+    "cert": null,
+    "password": null
+  },
+  "rooms": {
+    "/* maxClients */": "/* maximum number of clients per room. 0 = no limit */",
+    "maxClients": 0
+  },
+  "authentication":true
+}

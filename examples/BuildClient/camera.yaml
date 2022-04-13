@@ -1,0 +1,30 @@
+architecture: armhf
+creation_date: 1631790687288
+properties:
+ architecture: armhf
+ description: my description
+ os: os
+ release: "ose 2.0"
+ variant: default
+templates:
+  /etc/hostname:
+    when:
+    - create
+    - copy
+    create_only: false
+    template: hostname.tpl
+    properties: {}
+  /etc/hosts:
+    when:
+    - create
+    - copy
+    create_only: false
+    template: hosts.tpl
+    properties: {}
+  /etc/inittab:
+    when:
+    - create
+    - copy
+    create_only: false
+    template: inittab.tpl
+    properties: {}

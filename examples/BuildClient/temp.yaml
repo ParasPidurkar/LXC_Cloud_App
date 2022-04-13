@@ -1,0 +1,30 @@
+architecture: <architecture>
+creation_date: <creation_date>
+properties:
+ architecture: <architecture>
+ description: <description>
+ os: <os>
+ release: "ose 2.0"
+ variant: default
+templates:
+  /etc/hostname:
+    when:
+    - create
+    - copy
+    create_only: false
+    template: hostname.tpl
+    properties: {}
+  /etc/hosts:
+    when:
+    - create
+    - copy
+    create_only: false
+    template: hosts.tpl
+    properties: {}
+  /etc/inittab:
+    when:
+    - create
+    - copy
+    create_only: false
+    template: inittab.tpl
+    properties: {}
